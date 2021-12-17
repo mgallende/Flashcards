@@ -2,56 +2,95 @@
 
     margin: 0 auto;
 }
+body {
+    background: url("/img/earth-form-space.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.container{
+    width: 960px;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
 
 .quiz-title {
     color: #fff;
     font-family: 'Libre Baskerville', serif;
-    font-size: 2.6rem;
+    font-size: 2.3rem;
     font-weight: 900;
     margin-bottom: .8rem;
     text-align: center;
 }
 
 h2 {
+    font-size: 1.5rem;
     color: orange;
     font-family: 'Lato', sans-serif;
     font-weight: 900;
     padding-top: 1rem;
+    padding-bottom: .3rem;
 }
 
 p {
+    font-size: 2.2rem;
     color: #000;
-    font-family: 'Lato', sans-serif;
+    font-family: 'The Nautigal', cursive;
     font-weight: 400;
-    padding:0 6px 6px 6px;
-    text-align: left;
-}
-
-.container {
-    background-image: url("/img/earth-form-space.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-    margin: 0 auto;
-    max-width: 100vw;
-    padding: 25px;
-}
-
-.cards-container {
-    display: grid;
-    grid-auto-rows: minmax(250px, 250px);
-    grid-gap: 10px 10px;
-    grid-template-columns: repeat(3, 1fr);
-    margin: 0 auto;
-    max-width: 1200px;
-}
-
-.card-front {
-    background: #fff;
-    border-radius: 12px;
-    height: 250px;
+    padding:12px 12px 0 12px;
     text-align: center;
+}
+
+img {
+    width: 200px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.45);
+}
+
+.card{
+    height: 250px;
     width: 250px;
+    position: relative;
+    transition: all 1s linear;
+    transform-style: preserve-3d;
+}
+
+
+.front,
+.back{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 3em;
+    font-family: 'Lobster', cursive;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.front{
+    background: #fff;
+    z-index: 2;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+.back{
+    background: #fff;
+    z-index: 1;
+    transform: rotateY(180deg);
+}
+
+.cards:hover .card{
+    transform: rotateY(180deg);
+}
+
+
+.cards .card{
+    -moz-backface-visibility: hidden;
 }
